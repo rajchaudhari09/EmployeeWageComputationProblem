@@ -7,15 +7,17 @@ public class EmployeeWageComputationProblem
 	public static final int isPartTime = 1;
 	public static final int employeeRatePerHour = 20;
 	public static final int numerOfWorkingDays=2;
+	public static final int maximumHoursInMonth=10;
 	public static void main(String[] args)
 	{
 		//Variables
 		int employeeHours = 0;
-		int employeeWage = 0;
-		int totalEmployeeWage = 0;
+		int totalEmployeeHours = 0;
+		int totalWorkingDays = 0;
 		//Computation
-		for (int day = 0; day < numerOfWorkingDays; day++)
+		while (totalEmployeeHours <= maximumHoursInMonth && totalWorkingDays < numerOfWorkingDays)
 		{
+			totalWorkingDays++;
 			int employeeCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (employeeCheck)
 	   	{
@@ -28,10 +30,10 @@ public class EmployeeWageComputationProblem
 				default:
 							employeeHours = 0;
 			}
-				employeeWage = employeeHours * employeeRatePerHour;
-				totalEmployeeWage += employeeWage;
-				System.out.println("EmployeeWage: " + employeeWage);
+				totalEmployeeHours += employeeHours;
+				System.out.println("Day#: " + totalWorkingDays + "EmployeeHours:" + employeeHours);
 		}
+		int totalEmployeeWage = totalEmployeeHours * employeeRatePerHour;
 		System.out.println("totalEmployeeWage: " + totalEmployeeWage);
 
 	}
