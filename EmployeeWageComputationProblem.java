@@ -22,7 +22,7 @@ public class EmployeeWageComputationProblem
 
 	public static void main(String[] args)
 	{
-		 EmployeeWageComputationProblem wipro = new  EmployeeWageComputationProblem("wipro", 20, 2, 10);
+		 EmployeeWageComputationProblem wipro = new  EmployeeWageComputationProblem("Wipro", 20, 2, 10);
 		//Variables
 		int employeeHours = 0;
 		int totalEmployeeHours = 0;
@@ -45,12 +45,12 @@ public class EmployeeWageComputationProblem
 				default:
 							employeeHours = 0;
 			}
-		}
+
 				employeeWage = employeeHours * wipro.maximumHoursInMonth;
 		  	   totalEmployeeWage += employeeWage;
-				totalEmployeeHours += employeeWage;
+				//totalEmployeeHours += employeeWage;
+		}
 				System.out.println("EmployeeWage:= " + employeeWage);
 				System.out.println("totalEmployeeWage:= " + totalEmployeeWage);
-
 	}
 }
