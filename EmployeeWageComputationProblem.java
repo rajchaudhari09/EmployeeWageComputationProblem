@@ -1,4 +1,3 @@
-
 // Employee Wage Computation Problem In Java:=
 
 public class EmployeeWageComputationProblem
@@ -17,6 +16,7 @@ public class EmployeeWageComputationProblem
 		this.maximumHoursInMonth = maximumHoursInMonth;
 
 	}
+
 	public int  calculateWage()
 	{
 		//Variables
@@ -46,20 +46,14 @@ public class EmployeeWageComputationProblem
 		}
 		return totalEmployeeHours;
 	}
+
 	public int totalEmployeeW(int totalEmployeeHours)
 	{
         	return totalEmployeeHours * employeeRatePerHour;
 	}
 
-
-
 	public static void main(String[] args)
 	{
-	 //int dMartTotalEmployeeHours=0; 
-	//int totaldMartEmployeeWage=0;
-	// int bigBazaarTotalEmployeeHours=0; 
-       // int totalbigBazaarEmployeeWage=0;
-
 	 EmployeeWageComputationProblem dMart = new  EmployeeWageComputationProblem( 10, 30, 20);
 	 int dMartTotalEmployeeHours=dMart.calculateWage();
 	 int totaldMartEmployeeWage=dMart.totalEmployeeW(dMartTotalEmployeeHours);
