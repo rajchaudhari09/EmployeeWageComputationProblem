@@ -66,3 +66,5 @@ public class EmployeeWageComputationProblem
 	 System.out.println("total Wage of bigBazaar employee is: " +  totalbigBazaarEmployeeWage);
 	}
 }
+
+
