@@ -1,41 +1,35 @@
-//!/bin/bash -x
+
 // Employee Wage Computation Problem In Java:=
 
 public class EmployeeWageComputationProblem
 {
-	public static final int isFullTime = 2;
-	public static final int isPartTime = 1;
+	public final int isFullTime = 2;
+	public final int isPartTime = 1;
 
-	private final String company;
-	private final int employeeRatePerHour;
-	private final int numerOfWorkingDays;
-	private final int maximumHoursInMonth;
-
-	public EmployeeWageComputationProblem(String company, int employeeRatePerHour, int numerOfWorkingDays, int maximumHoursInMonth)
+	public String company;
+	public int employeeRatePerHour;
+	public int numerOfWorkingDays;
+	public int maximumHoursInMonth;
+	public EmployeeWageComputationProblem( int employeeRatePerHour, int numerOfWorkingDays, int maximumHoursInMonth)
 	{
-		this.company = company;
 		this.employeeRatePerHour = employeeRatePerHour;
 		this.numerOfWorkingDays = numerOfWorkingDays;
 		this.maximumHoursInMonth = maximumHoursInMonth;
 
 	}
-
-	public static void main(String[] args)
+	public int  calculateWage()
 	{
-		 EmployeeWageComputationProblem wipro = new  EmployeeWageComputationProblem("Wipro", 20, 2, 10);
 		//Variables
 		int employeeHours = 0;
 		int totalEmployeeHours = 0;
 		int totalWorkingDays = 0;
-		int employeeWage = 0;
-		int  totalEmployeeWage = 0;
 		//Computation
-		while ( totalEmployeeHours <= wipro.maximumHoursInMonth && totalWorkingDays < wipro.numerOfWorkingDays)
+		while ( totalEmployeeHours <= maximumHoursInMonth && totalWorkingDays < numerOfWorkingDays )
 		{
 			totalWorkingDays++;
-			int employeeCheck = (int) Math.floor(Math.random() * 10) % 3;
+			int employeeCheck =(int) Math.floor(Math.random() * 10) % 3;
 			switch (employeeCheck)
-	   	{
+	   		{
  				case isPartTime:
 							employeeHours = 4;
 							break;
@@ -46,11 +40,35 @@ public class EmployeeWageComputationProblem
 							employeeHours = 0;
 			}
 
-				employeeWage = employeeHours * wipro.maximumHoursInMonth;
-		  	   totalEmployeeWage += employeeWage;
-				//totalEmployeeHours += employeeWage;
+		  	   totalEmployeeHours += employeeHours;
+			   System.out.println("Day::=" + totalWorkingDays + "EmployeeHours is the " + employeeHours);
+
 		}
-				System.out.println("EmployeeWage:= " + employeeWage);
-				System.out.println("totalEmployeeWage:= " + totalEmployeeWage);
+		return totalEmployeeHours;
+	}
+	public int totalEmployeeW(int totalEmployeeHours)
+	{
+        	return totalEmployeeHours * employeeRatePerHour;
+	}
+
+
+
+	public static void main(String[] args)
+	{
+	 //int dMartTotalEmployeeHours=0; 
+	//int totaldMartEmployeeWage=0;
+	// int bigBazaarTotalEmployeeHours=0; 
+       // int totalbigBazaarEmployeeWage=0;
+
+	 EmployeeWageComputationProblem dMart = new  EmployeeWageComputationProblem( 10, 30, 20);
+	 int dMartTotalEmployeeHours=dMart.calculateWage();
+	 int totaldMartEmployeeWage=dMart.totalEmployeeW(dMartTotalEmployeeHours);
+	 System.out.println("total Wage of dMart employee is: " + totaldMartEmployeeWage);
+
+ 
+         EmployeeWageComputationProblem bigBazaar = new  EmployeeWageComputationProblem( 30, 50, 60);
+         int bigBazaarTotalEmployeeHours=bigBazaar.calculateWage();
+         int totalbigBazaarEmployeeWage=bigBazaar.totalEmployeeW(bigBazaarTotalEmployeeHours);
+	 System.out.println("total Wage of bigBazaar employee is: " +  totalbigBazaarEmployeeWage);
 	}
 }
