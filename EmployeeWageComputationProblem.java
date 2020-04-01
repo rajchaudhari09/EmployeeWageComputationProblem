@@ -1,4 +1,5 @@
 // Employee Wage Computation Problem In Java:=
+import java.util.ArrayList;
 
 interface EmployeeWageMethod
 {
@@ -47,13 +48,13 @@ public class EmployeeWageComputationProblem implements EmployeeWageMethod
 	{
 
 	 EmployeeWageComputationProblem employeeWageComputationProblem  = new EmployeeWageComputationProblem();
-	
-	 EmployeeWageComputationProblemNew[] EWCPN = new  EmployeeWageComputationProblemNew[2];
-	 EWCPN[0] = new EmployeeWageComputationProblemNew("Dmart",20,10,90);
-	 employeeWageComputationProblem.calculateWage(EWCPN[0]);
 
-	 EWCPN[1] = new EmployeeWageComputationProblemNew("Bigbazaar",20,60,90);
-	 employeeWageComputationProblem.calculateWage(EWCPN[1]);
+	ArrayList<EmployeeWageComputationProblemNew> EWCPN = new  ArrayList<EmployeeWageComputationProblemNew>();
+	 EWCPN.add(new EmployeeWageComputationProblemNew("Dmart",20,10,90));
+	 employeeWageComputationProblem.calculateWage(EWCPN.get(0));
+
+	 EWCPN.add(new EmployeeWageComputationProblemNew("Bigbazaar",20,60,90));
+	 employeeWageComputationProblem.calculateWage(EWCPN.get(1));
 
 
 	}
