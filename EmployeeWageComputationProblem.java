@@ -11,12 +11,16 @@ public class EmployeeWageComputationProblem implements EmployeeWageMethod
 	public final int isFullTime = 2;
 	public final int isPartTime = 1;
 
+	ArrayList<Integer> employeeDailyAndTotalWage = new ArrayList<Integer>();
+
 	public int calculateWage(EmployeeWageComputationProblemNew employee)
 	{
 		//Variables
 		int employeeHours = 0;
 		int totalEmployeeHours = 0;
 		int totalWorkingDays = 0;
+		int employeeDailyWage = 0;
+		int employeeTotalWage = 0;
 		//Computation
 		while ( totalEmployeeHours <= employee.getmaximumHoursInMonth() && totalWorkingDays < employee.getnumerOfWorkingDays() )
 		{
@@ -35,11 +39,14 @@ public class EmployeeWageComputationProblem implements EmployeeWageMethod
 			}
 
 		  	 totalEmployeeHours += employeeHours;
+			 employeeDailyWage = employeeHours * employee.getemployeeRatePerHour();
+			 employeeDailyAndTotalWage.add( employeeDailyWage );
          	         System.out.println("Day::=" + totalWorkingDays + " employeeHours is::  " + employeeHours);
 
 		}
-
-	        employee.settotalEmployeeW(totalEmployeeHours * employee.getemployeeRatePerHour() );
+		employeeTotalWage = totalEmployeeHours * employee.getemployeeRatePerHour();
+		employeeDailyAndTotalWage.add( employeeTotalWage );
+	        employee.settotalEmployeeW( employeeTotalWage );
 		System.out.println("total Wage of the " + employee.getcompany() + " employee is::  " + employee.gettotalEmployeeW() );
 		return totalEmployeeHours;
 	}
