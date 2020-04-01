@@ -1,6 +1,11 @@
 // Employee Wage Computation Problem In Java:=
 
-public class EmployeeWageComputationProblem
+interface EmployeeWageMethod
+{
+	public int calculateWage(EmployeeWageComputationProblemNew obj);
+}
+
+public class EmployeeWageComputationProblem implements EmployeeWageMethod
 {
 	public final int isFullTime = 2;
 	public final int isPartTime = 1;
